@@ -62,15 +62,15 @@ rm -rf $RPM_BUILD_ROOT
 %post
 umask 022
 if ! grep -qs '^%{_libdir}/%{name}$' /etc/ld.so.conf ; then
-        echo "%{_libdir}/%{name}" >> /etc/ld.so.conf
+	echo "%{_libdir}/%{name}" >> /etc/ld.so.conf
 fi
 /sbin/ldconfig
 
 %postun
 umask 022
 if [ "$1" = '0' ]; then
-        grep -v '^%{_libdir}/%{name}$' /etc/ld.so.conf > /etc/ld.so.conf.new 2>/dev/null
-        mv -f /etc/ld.so.conf.new /etc/ld.so.conf
+	grep -v '^%{_libdir}/%{name}$' /etc/ld.so.conf > /etc/ld.so.conf.new 2>/dev/null
+	mv -f /etc/ld.so.conf.new /etc/ld.so.conf
 fi
 /sbin/ldconfig
 
