@@ -23,7 +23,7 @@ Source0:	http://sancho-gui.sourceforge.net/tmp/%{name}-%{version}-%{_pver}.tar.b
 # Source0-md5:	0e91a1e7cd4c97723ee7d0f8f36f2d9c
 Source1:	%{name}.desktop
 URL:		http://sancho-gui.sourceforge.net/
-ExclusiveArch:	??? (or build from sources if available?)
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
