@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=0.9.4
+Encoding=UTF-8
+Name=Sancho
+Comment=Graphical user interface for p2p cores
+Comment[pl]=Interfejs graficzny dla p2p
+Exec=sancho
+Icon=sancho-48.xpm
+Terminal=false
+Type=Application
+Categories=GTK;Network;P2P;
+# vi: encoding=utf-8
