@@ -1,23 +1,21 @@
 
 # TODO:
-# License - "other" doesn't say anything
-# ExclusiveArch - which?
+# http://sancho-gui.sourceforge.net/sancho_pl_PL.properties
 # libgcc_s.so.1 in private dir added to ld.so.conf is asking for trouble;
 #   should use system libgcc_s.so.1 >= ? (to check)
 # is system libgcj not sufficient?
 
 # http://sancho-gui.sourceforge.net/tmp/sancho-src.tar.bz2
 # are these sources complete? if so, switch to them instead of using
-# binaries
+# binaries -> "The requested URL was not found"
 
 %define		_pver	14-linux-fox
-
 Summary:	Graphical user interface for p2p cores
 Summary(pl):	Interfejs graficzny dla p2p
 Name:		sancho
 Version:	0.9.4
 Release:	2.1
-License:	other
+License:	CPL
 Group:		X11/Applications/Networking
 Source0:	http://sancho-gui.sourceforge.net/tmp/%{name}-%{version}-%{_pver}.tar.bz2
 # Source0-md5:	0e91a1e7cd4c97723ee7d0f8f36f2d9c
