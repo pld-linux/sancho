@@ -5,11 +5,12 @@ Summary:	Graphical user interface for p2p cores
 Summary(pl):	Interfejs graficzny dla p2p
 Name:		sancho
 Version:	0.9.4
-Release:	1
+Release:	2
 License:	other
 Group:		X11/Applications/Networking
 Source0:	http://sancho-gui.sourceforge.net/tmp/%{name}-%{version}-%{_pver}.tar.bz2
 # Source0-md5:	0e91a1e7cd4c97723ee7d0f8f36f2d9c
+Source1:	%{name}.desktop
 URL:		http://sancho-gui.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,12 +29,14 @@ core.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/{%{_bindir},%{_libdir}/%{name},%{_datadir}/%{name}}
+install -d $RPM_BUILD_ROOT/{%{_bindir},%{_libdir}/%{name},%{_datadir}/%{name},%{_pixmapsdir},%{_desktopdir}}
 install sancho-bin $RPM_BUILD_ROOT/%{_bindir}/sancho
 install lib/libswt-fox-3000r1.so $RPM_BUILD_ROOT/%{_libdir}/%{name}/
 install lib/libgcc_s.so.1 $RPM_BUILD_ROOT/%{_libdir}/%{name}/
 install lib/libgcj.so $RPM_BUILD_ROOT/%{_libdir}/%{name}/
 install distrib/sancho*.properties $RPM_BUILD_ROOT%{_datadir}/%{name}/
+install distrib/*.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,3 +63,5 @@ fi
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/%{name}
 %{_datadir}/%{name}
+%{_pixmapsdir}/*
+%{_desktopdir}/*
