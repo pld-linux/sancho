@@ -1,15 +1,9 @@
 
 # TODO:
-# http://sancho-gui.sourceforge.net/sancho_pl_PL.properties
 # libgcc_s.so.1 in private dir added to ld.so.conf is asking for trouble;
 #   should use system libgcc_s.so.1 >= ? (to check)
 # is system libgcj not sufficient?
-
-# http://sancho-gui.sourceforge.net/tmp/sancho-src.tar.bz2
-# are these sources complete? if so, switch to them instead of using
-# binaries -> "The requested URL was not found"
-
-%define		_pver	14-linux-fox
+%define		_pver	37-linux-fox
 Summary:	Graphical user interface for p2p cores
 Summary(pl):	Interfejs graficzny dla p2p
 Name:		sancho
@@ -18,7 +12,7 @@ Release:	2.1
 License:	CPL
 Group:		X11/Applications/Networking
 Source0:	http://sancho-gui.sourceforge.net/tmp/%{name}-%{version}-%{_pver}.tar.bz2
-# Source0-md5:	0e91a1e7cd4c97723ee7d0f8f36f2d9c
+# Source0-md5:	f4dbc54657155dc8e9bef20211024713
 Source1:	%{name}.desktop
 URL:		http://sancho-gui.sourceforge.net/
 ExclusiveArch:	%{ix86}
@@ -47,9 +41,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name},%{_datadir}/%{name},%{_pixmapsdir},%{_desktopdir}}
 
 install sancho-bin $RPM_BUILD_ROOT%{_bindir}/sancho
-install lib/libswt-fox-3000r1.so $RPM_BUILD_ROOT%{_libdir}/%{name}
 install lib/libgcc_s.so.1 $RPM_BUILD_ROOT%{_libdir}/%{name}
-install lib/libgcj.so $RPM_BUILD_ROOT%{_libdir}/%{name}
+install lib/libgcj.so.6.0.0 $RPM_BUILD_ROOT%{_libdir}/%{name}
+install lib/libswt-fox-3000r4.so $RPM_BUILD_ROOT%{_libdir}/%{name}
 install distrib/sancho*.properties $RPM_BUILD_ROOT%{_datadir}/%{name}
 install distrib/*.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
