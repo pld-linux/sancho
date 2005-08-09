@@ -3,16 +3,16 @@
 # libgcc_s.so.1 in private dir added to ld.so.conf is asking for trouble;
 #   should use system libgcc_s.so.1 >= ? (to check)
 # is system libgcj not sufficient?
-%define		_pver	42-linux-fox
+%define		_pver	44-linux-fox
 Summary:	Graphical user interface for p2p cores
 Summary(pl):	Interfejs graficzny dla p2p
 Name:		sancho
 Version:	0.9.4
-Release:	2.1
+Release:	1
 License:	CPL
 Group:		X11/Applications/Networking
 Source0:	http://sancho-gui.sourceforge.net/dl/tmp94/%{name}-%{version}-%{_pver}.tar.bz2
-# Source0-md5:	612f69822d56edc82d8ec8a8f7fa3c59
+# Source0-md5:	60bfe592a1e34e8421700854d8dd9818
 Source1:	%{name}.desktop
 URL:		http://sancho-gui.sourceforge.net/
 ExclusiveArch:	%{ix86}
