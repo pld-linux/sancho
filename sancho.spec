@@ -3,16 +3,17 @@
 # libgcc_s.so.1 in private dir added to ld.so.conf is asking for trouble;
 #   should use system libgcc_s.so.1 >= ? (to check)
 # is system libgcj not sufficient?
+%define		_ver	0.9.4
 %define		_pver	47-linux-gtk
 %define		no_install_post_strip	1
 Summary:	Graphical user interface for p2p cores
 Summary(pl):	Interfejs graficzny dla p2p
 Name:		sancho
-Version:	0.9.4
+Version:	0.9.4.47
 Release:	1
 License:	CPL
 Group:		X11/Applications/Networking
-Source0:	http://sancho-gui.sourceforge.net/dl/tmp94/%{name}-%{version}-%{_pver}.tar.bz2
+Source0:	http://sancho-gui.sourceforge.net/dl/tmp94/%{name}-%{_ver}-%{_pver}.tar.bz2
 # Source0-md5:	2c768e5f9f6da9c1d2fdb7ac5e06417b
 Source1:	%{name}.desktop
 URL:		http://sancho-gui.sourceforge.net/
@@ -35,7 +36,7 @@ graficzny, aktualnie obs³uguj±cy protokó³ GUI popularnego rdzenia
 mldonkey.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_pver}
+%setup -q -n %{name}-%{_ver}-%{_pver}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -44,7 +45,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name},%{_datadir}/%{name},%{_
 install sancho-bin $RPM_BUILD_ROOT%{_bindir}/sancho
 install lib/libgcc_s.so.1 $RPM_BUILD_ROOT%{_libdir}/%{name}
 install lib/libgcj.so.6.0.0 $RPM_BUILD_ROOT%{_libdir}/%{name}
-install lib/libswt-gtk-3138.so $RPM_BUILD_ROOT%{_libdir}/%{name}
+install lib/libswt-{gtk,pi-gtk}-3138.so $RPM_BUILD_ROOT%{_libdir}/%{name}
 install distrib/sancho*.properties $RPM_BUILD_ROOT%{_datadir}/%{name}
 install distrib/*.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
