@@ -17,6 +17,7 @@ Source0:	http://sancho-gui.sourceforge.net/dl/tmp94/%{name}-%{_ver}-%{_pver}.tar
 # Source0-md5:	2c768e5f9f6da9c1d2fdb7ac5e06417b
 Source1:	%{name}.desktop
 URL:		http://sancho-gui.sourceforge.net/
+Requires:	glibc >= 6:2.3.5-7.6
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,27 +51,19 @@ install distrib/sancho*.properties $RPM_BUILD_ROOT%{_datadir}/%{name}
 install distrib/*.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
+install -d $RPM_BUILD_ROOT/etc/ld.so.conf.d
+echo '%{_libdir}/%{name}' > $RPM_BUILD_ROOT/etc/ld.so.conf.d/%{name}.conf
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-umask 022
-if ! grep -qs '^%{_libdir}/%{name}$' /etc/ld.so.conf ; then
-	echo "%{_libdir}/%{name}" >> /etc/ld.so.conf
-fi
-/sbin/ldconfig
-
-%postun
-umask 022
-if [ "$1" = '0' ]; then
-	grep -v '^%{_libdir}/%{name}$' /etc/ld.so.conf > /etc/ld.so.conf.new 2>/dev/null
-	mv -f /etc/ld.so.conf.new /etc/ld.so.conf
-fi
-/sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc distrib/AUTHORS distrib/ChangeLog distrib/README distrib/LICENSE.txt
+%verify(not md5 mtime size) /etc/ld.so.conf.d/*.conf
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/%{name}
 %{_datadir}/%{name}
