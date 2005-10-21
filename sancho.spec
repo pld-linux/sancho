@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc distrib/AUTHORS distrib/ChangeLog distrib/README distrib/LICENSE.txt
-%verify(not md5 mtime size) /etc/ld.so.conf.d/*.conf
+/etc/ld.so.conf.d/*.conf
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/%{name}
 %{_datadir}/%{name}
