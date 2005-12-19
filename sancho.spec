@@ -55,7 +55,7 @@ install -d $RPM_BUILD_ROOT/etc/ld.so.conf.d
 echo '%{_libdir}/%{name}' > $RPM_BUILD_ROOT/etc/ld.so.conf.d/%{name}.conf
 
 %clean
-# rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
