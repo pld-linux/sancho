@@ -4,17 +4,17 @@
 #   should use system libgcc_s.so.1 >= ? (to check)
 # is system libgcj not sufficient?
 %define		_ver	0.9.4
-%define		_pver	51-linux-gtk
+%define		_pver	52-linux-gtk
 %define		no_install_post_strip	1
 Summary:	Graphical user interface for p2p cores
 Summary(pl):	Interfejs graficzny dla p2p
 Name:		sancho
-Version:	0.9.4.51
+Version:	0.9.4.52
 Release:	1
 License:	CPL
 Group:		X11/Applications/Networking
 Source0:	http://sancho-gui.sourceforge.net/dl/tmp94/%{name}-%{_ver}-%{_pver}.tar.bz2
-# Source0-md5:	6791be205e6cecd0924fedb34c751163
+# Source0-md5:	20bec0ee74dd0e3acfaa86f2a65d6817
 Source1:	%{name}.desktop
 URL:		http://sancho-gui.sourceforge.net/
 Requires:	glibc >= 6:2.3.5-7.6
@@ -46,7 +46,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name},%{_datadir}/%{name},%{_
 install sancho-bin $RPM_BUILD_ROOT%{_bindir}/sancho
 install lib/libgcc_s.so.1 $RPM_BUILD_ROOT%{_libdir}/%{name}
 install lib/libgcj.so.6.0.0 $RPM_BUILD_ROOT%{_libdir}/%{name}
-install lib/libswt-{gtk,pi-gtk}-3206.so $RPM_BUILD_ROOT%{_libdir}/%{name}
+install lib/libswt-*-3212.so $RPM_BUILD_ROOT%{_libdir}/%{name}
 install distrib/sancho*.properties $RPM_BUILD_ROOT%{_datadir}/%{name}
 install distrib/*.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
@@ -55,7 +55,7 @@ install -d $RPM_BUILD_ROOT/etc/ld.so.conf.d
 echo '%{_libdir}/%{name}' > $RPM_BUILD_ROOT/etc/ld.so.conf.d/%{name}.conf
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+# rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
