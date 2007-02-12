@@ -7,7 +7,7 @@
 %define		_pver	55-linux-gtk
 %define		no_install_post_strip	1
 Summary:	Graphical user interface for p2p cores
-Summary(pl):	Interfejs graficzny dla p2p
+Summary(pl.UTF-8):   Interfejs graficzny dla p2p
 Name:		sancho
 Version:	0.9.4.55
 Release:	1
@@ -28,12 +28,12 @@ separation. Sancho provides an easy to use, powerful, and configurable
 GUI, currently supporting the GUI protocol of the popular mldonkey
 core.
 
-%description -l pl
-Sancho to graficzny interfejs ³±cz±cy siê z aplikacj± p2p.
-Zaawansowani u¿ytkownicy u¿ywaj±cy aplikacji p2p zwykle wybieraj±
+%description -l pl.UTF-8
+Sancho to graficzny interfejs Å‚Ä…czÄ…cy siÄ™ z aplikacjÄ… p2p.
+Zaawansowani uÅ¼ytkownicy uÅ¼ywajÄ…cy aplikacji p2p zwykle wybierajÄ…
 takie z rozdzielonym rdzeniem i interfejsem graficznym. Sancho
-dostarcza ³atwy w u¿yciu, potê¿ny i konfigurowalny interfejs
-graficzny, aktualnie obs³uguj±cy protokó³ GUI popularnego rdzenia
+dostarcza Å‚atwy w uÅ¼yciu, potÄ™Å¼ny i konfigurowalny interfejs
+graficzny, aktualnie obsÅ‚ugujÄ…cy protokÃ³Å‚ GUI popularnego rdzenia
 mldonkey.
 
 %prep
