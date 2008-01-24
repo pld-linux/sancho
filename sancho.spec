@@ -5,7 +5,6 @@
 # is system libgcj not sufficient?
 %define		_ver	0.9.4
 %define		_pver	55-linux-gtk
-%define		no_install_post_strip	1
 Summary:	Graphical user interface for p2p cores
 Summary(pl.UTF-8):	Interfejs graficzny dla p2p
 Name:		sancho
